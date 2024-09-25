@@ -18,7 +18,7 @@ public class PersonVO implements Serializable{
 	@JsonProperty("last_name")
 	private String lastName;
 	private String address;
-	@JsonIgnore
+//	@JsonIgnore
 	private String gender;
 	
 	public PersonVO() {}
