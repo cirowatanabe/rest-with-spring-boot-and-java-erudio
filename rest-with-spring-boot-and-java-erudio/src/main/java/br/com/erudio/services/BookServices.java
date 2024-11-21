@@ -45,8 +45,8 @@ public class BookServices {
 		if (vo == null) {
 			throw new RequiredObjectIsNullException();
 		}
-		Book book = repository.save(mapper.convertVOToEntity(vo));
-		BookVO vo2 = mapper.convertEntityToVO(book);
+		Book book = repository.save(DozerMapper.parseObject(vo, Book.class));
+		BookVO vo2 = DozerMapper.parseObject(book, BookVO.class);
 		vo2.add(linkTo(methodOn(BookController.class).findById(vo2.getId())).withSelfRel());
 		return vo2;
 	}
